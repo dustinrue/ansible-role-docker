@@ -1,0 +1,18 @@
+galaxy_info:
+  author: Dustin Rue
+  description: Installs docker-ce on xenial
+
+  license: MIT
+
+  min_ansible_version: 1.2
+
+  platforms:
+  - name: Ubuntu
+    versions: xenial
+
+  galaxy_tags: 
+   - xenial
+   - docker
+
+dependencies:
+  - dustinrue.xenial-bootstrap

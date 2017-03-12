@@ -1,0 +1,21 @@
+---
+- name: Add docker key
+  apt_key: 
+    url: "https://download.docker.com/linux/ubuntu/gpg"
+    id: 0EBFCD88
+
+- name: Add docker repo
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+
+- name: Install docker
+  apt: name=docker-ce state=installed update_cache=yes
+ 
+# In order for ansible to control docker containers
+# you need docker-py. 
+- name: Install pip
+  apt: name=python-pip state=installed
+
+- name: Install docker-py
+  pip:
+    name: docker-py
